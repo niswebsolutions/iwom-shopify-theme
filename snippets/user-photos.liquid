@@ -1,0 +1,86 @@
+<div id="pup_container">
+  <div class="pup_form_container">
+  <span id="pup_trigger_button" class="pup_btn">Upoad Image</span>
+  <form id="pup_upload_form" style="display:none">
+    <input type="text" name="pup_name" placeholder="Enter your name">
+    <input type="email" name="pup_email"  placeholder="Enter your email">
+    <input type="file" name="pup_upload_file" id="pup_upload_file" />
+    <input type="submit" id="pup_upload_button" class="pup_btn" value="Upload">
+  </form>
+  </div>
+  <div id="pup_masonry">
+    {% if product.metafields.PUP_APP != blank %}
+    	{% for field in product.metafields.PUP_APP  %}
+        {% assign words = field[1] | split: '#$#' %}
+    	{% if words[1] == '1' %}
+    	{% assign url = words[0] | replace: 'assets/', '' %}
+    	  <img src="{{ url | asset_img_url : 'medium' }}" >
+    	{% endif %}
+        {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  $(function(){
+    // toggle effect
+      $("#pup_trigger_button").on('click', function(){
+        $("#pup_upload_form").slideToggle();
+      });
+    // validate upload file
+    $('#pup_upload_file').on('change', function(){
+      var file = this.files[0];
+      if(!file.type.match('image.*')){
+        $(this).val('');
+        alert("Please select an image only");
+        return false;
+      }else if(file.size > 10000000){
+        $(this).val('');
+      	alert("Please select image less than 10mb");
+        return false;
+      }
+    });
+      
+    $('#pup_upload_form').on('submit',(function(e) {
+      	// check file selected or not
+        if($("#pup_upload_file").val() == ''){
+          alert("Please select file first");
+          return false;
+        }
+        var formData = new FormData(this);
+
+        $.ajax({
+            type:'POST',
+            url: '/apps/upload/{{ shop.permanent_domain }}/{{ product.id }}',
+            data:formData,
+          	dataType: 'json',
+            cache:false,
+            contentType: false,
+            processData: false,
+          	beforeSend : function(){
+          		$('#pup_upload_button').val("Uploading...").prop('disabled', true);
+          	},
+            success:function(data){
+          	  if(data.status){
+                $("#pup_upload_form").slideToggle();
+                $('#pup_upload_form').find('input[type=text], input[type=email],input[type=file] ').val('');
+              }else if(data.msg){
+                alert(data.msg);
+              }
+            },
+            complete : function(){
+              	$('#pup_upload_button').val("Upload").prop('disabled', false);
+            }
+        });
+                             
+        e.preventDefault();
+        return false;
+    }));
+      });
+</script>
+<style>
+  #pup_masonry > img {border-radius: 15px;padding-bottom: 5px;padding-right: 5px;}
+  .pup_form_container .pup_btn {background-color: #333333;border-radius: 5px;color: white;cursor: pointer;display: table;height: auto;margin-bottom: 8px;padding: 10px;width: auto;}
+  #pup_upload_form > input {box-sizing: border-box;margin-bottom: 10px;width: 100%;}
+  .pup_form_container {max-width: 250px;}
+</style>

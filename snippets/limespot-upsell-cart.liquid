@@ -1,0 +1,31 @@
+{% assign product_ids = "" %}
+{% for item in cart.items %}
+	{% assign product_ids = product_ids | append: ',' | append: item.product.id %}
+{% endfor %}
+<div class="ls-recommendation-box {{ extraClasses }}" data-box-type="Upsell" data-host-page="{{ template }}" data-reference-id="{{ product_ids | remove_first: "," }}"{% if dontPrioritize == true %} data-dont-prioritize="true"{% endif %}{%if placementSibling %} data-placement-sibling="{{ placementSibling }}"{% endif %}{% if placementDisposition %} data-placement-disposition="{{ placementDisposition }}"{% endif %}{{ extraAttributes }} data-keep-hidden-after-load="true" data-bypass-standard-appearance="true" data-bypass-lazy-images="true" style="display: none;">
+	<div class="ls-ul-container">
+		<ul class="ls-ul">
+			<li class="ls-li ls-no-overlay">
+				<div class="limespot-li-container">
+					<div class="ls-prev limespot-prev">
+						<a><img src="https://limespot.azureedge.net/snippets/images/arrow-left-sm.png" alt="<" /></a>
+					</div>
+					<a class="ls-link"><div class="ls-image limespot-image"></div></a>
+					<div class="limespot-message-container">
+						<a class="ls-link"><div class="ls-message limespot-message"></div></a>
+						<div class="ls-add-to-cart-container limespot-add-to-cart-container" data-apply-display-url="data-display-url"></div>
+					</div>
+					<div class="ls-next limespot-next">
+						<a><img src="https://limespot.azureedge.net/snippets/images/arrow-right-sm.png" alt=">" /></a>
+					</div>
+				</div>
+				<div style="display: none;">
+					<span class="ls-title"></span>
+					<span class="ls-price"></span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<span class="ls-box-title" style="display: none;"></span>
+</div>
+{% comment %}Checksum: 76a5c11998e69f3c807d77ad6a633fbf{% endcomment %}

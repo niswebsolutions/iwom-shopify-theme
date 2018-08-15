@@ -1,0 +1,31 @@
+<form action="//ca.secomapp.com/api/account" method="post">
+    <input type="hidden" name="id" value="{{customer.id}}">
+    <input type="hidden" name="shop" value="iwom-outerwear-llc.myshopify.com">
+
+    <div class="page-width">
+        <div class="grid">
+
+            <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+                <div class="content-block text-center">
+                    <h1>Edit Your Account</h1>
+                    <p><a href="/account">Back to Account</a></p>
+
+                    <div class="form-vertical text-center">
+                                                    <label class="ca-label ca-input-label ca-text-label ca-account" for="first_name">First Name</label>
+
+<input class="ca-value ca-input ca-text ca-account"  type="text" name="first_name" id="first_name" value="{{customer.first_name}}" placeholder="First Name"/>
+                                                    <label class="ca-label ca-input-label ca-text-label ca-account" for="last_name">Last Name</label>
+
+<input class="ca-value ca-input ca-text ca-account"  type="text" name="last_name" id="last_name" value="{{customer.last_name}}" placeholder="Last Name"/>
+                                                    <label class="ca-label ca-input-label ca-text-label ca-account" for="email">Email</label>
+
+<input class="ca-value ca-input ca-text ca-account"  type="text" name="email" id="email" value="{{customer.email}}" placeholder="Email"/>
+                                                <p>
+                            <input type="submit" value="Update" class="btn">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

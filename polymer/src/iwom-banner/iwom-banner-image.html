@@ -1,0 +1,74 @@
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+
+<dom-module id="iwom-banner-image">
+  <template>
+    <style>
+       :host {
+        display: -webkit-box;
+        display: flex;
+        display: -ms-flexbox;
+        display: -ms-flexbox;
+        width: 100%;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        position: relative;
+        overflow: hidden;
+        --iwom-banner-image-title: {}
+      }
+
+      :host[url]:not([url=""]) {
+        cursor: pointer;
+      }
+
+      #title {
+        position: absolute;
+        z-index: 5;
+        color: white;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 2vw;
+        font-size: 2vmax;
+        width: 100%;
+        text-align: center;
+        @apply --iwom-banner-image-title;
+      }
+
+      iron-image {
+        height: 100%;
+        width: 100%;
+        --iron-image-width: 100%;
+        position: absolute;
+        display: block;
+      }
+    </style>
+
+    <div id="title">[[title]]</div>
+    <iron-image src="[[image]]" sizing="cover" preload></iron-image>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'iwom-banner-image',
+      properties: {
+        title: {
+          type: String
+        },
+        image: {
+          type: String
+        },
+        url: {
+          type: String
+        }
+      },
+      ready: function () {
+        this.addEventListener('click', (e) => {
+          if (this.url && this.url !== '') {
+            window.location = this.url;
+          }
+        });
+      }
+    });
+  </script>
+</dom-module>

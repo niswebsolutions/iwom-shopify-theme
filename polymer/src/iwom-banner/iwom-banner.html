@@ -1,0 +1,86 @@
+<link rel="import" href="iwom-banner-image.html">
+
+<dom-module id="iwom-banner">
+  <template>
+    <style>
+       :host {
+        --iwom-banner-border-color: transparent;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        min-height: 50vmin;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        background-color: var(--iwom-banner-border-color);
+      }
+
+       :host[sizing='small'] {
+        min-height: 30vw;
+        min-height: 30vmin;
+      }
+
+       :host[sizing='large'] {
+        min-height: 70vw;
+        min-height: 70vmin;
+      }
+
+       :host[sizing='full-height'] {
+        min-height: 100vw;
+        min-height: 100vmin;
+      }
+
+       :host[display="slanted"] ::shadow iwom-banner-image {
+        -webkit-transform: skewX(-15deg);
+        transform: skewX(-15deg);
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1.05 auto;
+        flex: 1 1.05 auto;
+        border-top: none;
+        border-bottom: none;
+        margin-right: -1px;
+      }
+
+       :host[display="slanted"] ::shadow iwom-banner-image:first-of-type {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        margin-left: -6.2vw;
+      }
+
+       :host[display="slanted"] ::shadow iwom-banner-image:first-of-type #title {
+        padding-left: 2.4vw;
+      }
+
+       :host[display="slanted"] ::shadow iwom-banner-image:last-of-type {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        margin-right: -6.2vw;
+      }
+
+       :host[display="slanted"] ::shadow iwom-banner-image:last-of-type #title {
+        padding-left: 2.4vw;
+      }
+    </style>
+
+    <content></content>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'iwom-banner',
+      properties: {
+        display: {
+          type: String,
+          value: 'default'
+        },
+        sizing: {
+          type: String,
+          value: 'medium'
+        }
+      }
+    });
+  </script>
+</dom-module>

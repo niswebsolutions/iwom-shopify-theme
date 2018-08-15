@@ -1,0 +1,107 @@
+{% if section.settings.active %}
+<iwom-banner display="{{ section.settings.display }}" sizing="{{ section.settings.sizing }}">
+  {% for block in section.blocks %}
+    <iwom-banner-image title="{{ block.settings.title }}" image="{{ block.settings.image | img_url: '800x' }}" url="{{ block.settings.url }}"></iwom-banner-image>
+  {% endfor %}
+</iwom-banner>
+{% endif %}
+
+{% schema %}
+{
+  "name": "IWOM Banner",
+  "class": "iwom",
+  "settings": [
+    {
+      "id": "active",
+      "type": "checkbox",
+      "label": "Active"
+    },
+    {
+      "type": "radio",
+      "id": "sizing",
+      "label": "Sizing",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "full-height",
+          "label": "Full Height"
+        }
+      ],
+      "default": "small",
+      "info": "Text"
+    },
+    {
+      "type": "radio",
+      "id": "display",
+      "label": "Display",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "slanted",
+          "label": "Slanted"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner_image",
+      "name": "Banner Image",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "IWOM Banner",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "banner_image"
+        },
+        {
+          "type": "banner_image"
+        },
+        {
+          "type": "banner_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

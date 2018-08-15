@@ -1,0 +1,92 @@
+.ca-cart, .ca-register, .ca-account
+{
+    display: none;
+}
+
+.ca-errors
+{
+    display: none;
+    color: red;
+}
+
+.ui-datepicker-year, .ui-datepicker-month
+{
+    display: inline-block !important;
+}
+
+.ca-cart .ca-checkbox, .ca-cart .ca-radio,
+.ca-cart.ca-checkbox, .ca-cart.ca-radio,
+.ca-register .ca-checkbox, .ca-register .ca-radio,
+.ca-register.ca-checkbox, .ca-register.ca-radio,
+.ca-account .ca-checkbox, .ca-account .ca-radio,
+.ca-account.ca-checkbox, .ca-account.ca-radio
+{
+    padding-right: 4px !important;
+}
+
+.ca-cart .ca-checkbox.ca-inline, .ca-cart .ca-radio.ca-inline,
+.ca-cart.ca-checkbox.ca-inline, .ca-cart.ca-radio.ca-inline,
+.ca-register .ca-checkbox.ca-inline, .ca-register .ca-radio.ca-inline,
+.ca-register.ca-checkbox.ca-inline, .ca-register.ca-radio.ca-inline,
+.ca-account .ca-checkbox.ca-inline, .ca-account .ca-radio.ca-inline,
+.ca-account.ca-checkbox.ca-inline, .ca-account.ca-radio.ca-inline,
+.ca-cart .ca-checkbox.ca-inline label, .ca-cart .ca-radio.ca-inline label,
+.ca-cart.ca-checkbox.ca-inline label, .ca-cart.ca-radio.ca-inline label,
+.ca-register .ca-checkbox.ca-inline label, .ca-register .ca-radio.ca-inline label,
+.ca-register.ca-checkbox.ca-inline label, .ca-register.ca-radio.ca-inline label,
+.ca-account .ca-checkbox.ca-inline label, .ca-account .ca-radio.ca-inline label,
+.ca-account.ca-checkbox.ca-inline label, .ca-account.ca-radio.ca-inline label
+{
+    display: inline-block !important;
+}
+
+.ca-cart .ca-checkbox.ca-block, .ca-cart .ca-radio.ca-block,
+.ca-cart.ca-checkbox.ca-block, .ca-cart.ca-radio.ca-block,
+.ca-register .ca-checkbox.ca-block, .ca-register .ca-radio.ca-block,
+.ca-register.ca-checkbox.ca-block, .ca-register.ca-radio.ca-block,
+.ca-account .ca-checkbox.ca-block, .ca-account .ca-radio.ca-block,
+.ca-account.ca-checkbox.ca-block, .ca-account.ca-radio.ca-block,
+.ca-cart .ca-checkbox.ca-block label, .ca-cart .ca-radio.ca-block label,
+.ca-cart.ca-checkbox.ca-block label, .ca-cart.ca-radio.ca-block label,
+.ca-register .ca-checkbox.ca-block label, .ca-register .ca-radio.ca-block label,
+.ca-register.ca-checkbox.ca-block label, .ca-register.ca-radio.ca-block label,
+.ca-account .ca-checkbox.ca-block label, .ca-account .ca-radio.ca-block label,
+.ca-account.ca-checkbox.ca-block label, .ca-account.ca-radio.ca-block label
+{
+    display: block;
+}
+
+.ca-cart input[type="checkbox"] + label, input[type="checkbox"].ca-cart + label,
+.ca-register input[type="checkbox"] + label, input[type="checkbox"].ca-register + label,
+.ca-account input[type="checkbox"] + label, input[type="checkbox"].ca-account + label
+{
+    display: inline  !important;
+}
+
+.ca-cart input.error, .ca-cart textarea.error, .ca-cart select.error,
+input.ca-cart.error, textarea.ca-cart.error, select.ca-cart.error,
+.ca-register input.error, .ca-register textarea.error, .ca-register select.error,
+input.ca-register.error, textarea.ca-register.error, select.ca-register.error,
+.ca-account input.error, .ca-account textarea.error, .ca-account select.error,
+input.ca-account.error, textarea.ca-account.error, select.ca-account.error
+{
+    border: 1px solid red  !important;
+}
+
+.ca-cart label.error, label.ca-cart.error,
+.ca-register label.error, label.ca-register.error,
+.ca-account label.error, label.ca-account.error
+{
+    color: red  !important;
+}
+
+.ca-cart input.input-full, .ca-cart textarea.input-full, .ca-cart select.input-full,
+input.ca-cart.input-full, textarea.ca-cart.input-full, select.ca-cart.input-full,
+.ca-register input.input-full, .ca-register textarea.input-full, .ca-register select.input-full,
+input.ca-register.input-full, textarea.ca-register.input-full, select.ca-register.input-full,
+.ca-account input.input-full, .ca-account textarea.input-full, .ca-account select.input-full,
+input.ca-account.input-full, textarea.ca-account.input-full, select.ca-account.input-full
+{
+    width: 100%;
+}
+

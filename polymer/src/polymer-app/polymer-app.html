@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../iwom-banner/iwom-banner.html">
+<link rel="import" href="../iwom-banner/iwom-banner-image.html">
+
+<dom-module id="polymer-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <iwom-banner sizing="small">
+      <iwom-banner-image title="Tactical Gear" image="https://unsplash.it/600/200" url="http://google.com"></iwom-banner-image>
+      <iwom-banner-image title="Active Wear" image="https://unsplash.it/600/200" url></iwom-banner-image>
+      <iwom-banner-image title="Hunting Gear" image="https://unsplash.it/600/200" url=""></iwom-banner-image>
+      <iwom-banner-image title="Apparel" image="https://unsplash.it/600/200"></iwom-banner-image>
+    </iwom-banner>
+    <iwom-banner display="slanted" sizing="small">
+      <iwom-banner-image title="Tactical Gear" image="https://unsplash.it/600/200"></iwom-banner-image>
+      <iwom-banner-image title="Active Wear" image="https://unsplash.it/600/200"></iwom-banner-image>
+      <iwom-banner-image title="Hunting Gear" image="https://unsplash.it/600/200"></iwom-banner-image>
+      <iwom-banner-image title="Apparel" image="https://unsplash.it/600/200"></iwom-banner-image>
+    </iwom-banner>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'polymer-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'polymer-app',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

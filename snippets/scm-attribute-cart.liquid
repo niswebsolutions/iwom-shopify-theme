@@ -1,0 +1,221 @@
+<div class="cart-row ca-cart">
+    <div class="grid errors ca-errors">
+        <div class="grid-item large--one-half">
+            Please fill this out and you will be able to check out.
+        </div>
+    </div>
+    <div class="grid ca-attrs">
+                    {% assign variant_apply = 'matching_and_variants' %}
+{% assign variants = '' %}
+{% assign collections = '387818883' %}
+{% assign tags = '' %}
+
+{% if cart.item_count > 0 %}
+
+    {% if variants != blank %}
+        {% assign variantIds = ',' | append: variants | append: ',' %}
+    {% endif %}
+    {% if collections != blank %}
+        {% assign colIds = ',' | append: collections | append: ',' %}
+    {% endif %}
+    {% if tags != blank %}
+        {% assign tagIds = ',' | append: tags | append: ',' %}
+    {% endif %}
+
+    {% assign match = false %}
+
+    {% for item in cart.items %}
+        {% assign matchVariant = false %}
+
+        <!-- variants format id,id -->
+        {% if variants != blank %}
+            {% assign wrapId = ',' | append: item.variant_id | append: ',' %}
+            {% if variantIds contains wrapId %}
+                {% assign matchVariant = true %}
+            {% endif %}
+        {% elsif variant_apply == 'variants' %}
+            {% assign matchVariant = true %}
+        {% endif %}
+
+        {% if variant_apply == 'variants' %}
+            {% if matchVariant %}
+                {% assign match = true %}
+                {% break %}
+            {% else %}
+                {% assign match = false %}
+                {% continue %}
+            {% endif %}
+        {% elsif variant_apply == 'matching_and_variants' %}
+            {% assign match = matchVariant %}
+            {% if matchVariant %}
+                {% assign match = true %}
+                {% break %}
+            {% endif %}
+        {% elsif variant_apply == 'matching_except_variants' %}
+            {% if matchVariant %}
+                {% assign match = false %}
+                {% continue %}
+            {% endif %}
+        {% endif %}
+
+        {% assign matchRule = true %}
+
+        <!-- collections format id,id -->
+        {% if collections != blank %}
+            {% assign matchRule = false %}
+            {% for collection in item.product.collections %}
+                {% assign wrapId = ',' | append: collection.id | append: ',' %}
+                {% if colIds contains wrapId %}
+                    {% assign matchRule = true %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!-- tags format tag,tag -->
+        {% if tags != blank and matchRule == true %}
+            {% assign matchRule = false %}
+            {% for tag in item.product.tags %}
+                {% assign wrapTag = ',' | append: tag | append: ',' %}
+                {% if tagIds contains wrapTag %}
+                    {% assign matchRule = true %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if matchRule %}
+            {% assign match = true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+
+{% endif %}
+
+    {% if customer and customer.metafields.customer_attribute.to-make-sure-you-are-in-the and match == true %}
+    <input class="ca-value ca-hidden" type="hidden" id="to-make-sure-you-are-in-the" value="{{customer.metafields.customer_attribute.to-make-sure-you-are-in-the }}" name="attributes[to-make-sure-you-are-in-the]">
+    {% elsif match == true %}
+            <div class="grid__item medium-up--one-half ca-attr">
+                <label class="ca-label ca-input-label ca-text-label " for="to-make-sure-you-are-in-the">*Optional* To make sure you are in the best fit possible please give us your barefoot height and bodyweight. (Once order is placed we will double check your size for you) </label>
+<input class="ca-value ca-text input-full"  id="to-make-sure-you-are-in-the" value="" type="text" name="attributes[to-make-sure-you-are-in-the]" placeholder="example 5&#039;9&quot; 210 Lbs" >            </div>
+            {% endif %}                    {% assign match = true %}
+
+    {% if customer and customer.metafields.customer_attribute.how-did-you-first-hear-abou and match == true %}
+    <input class="ca-value ca-hidden" type="hidden" id="how-did-you-first-hear-abou" value="{{customer.metafields.customer_attribute.how-did-you-first-hear-abou }}" name="attributes[how-did-you-first-hear-abou]">
+    {% elsif match == true %}
+            <div class="grid__item medium-up--one-half ca-attr">
+                <label class="ca-label label-textarea-label " for="how-did-you-first-hear-abou" >*Optional* How did you first hear about IWOM?  </label>
+<textarea class="ca-value ca-textarea input-full"  id="how-did-you-first-hear-abou" name="attributes[how-did-you-first-hear-abou]" >enter text here </textarea>            </div>
+            {% endif %}                    {% assign variant_apply = 'matching_and_variants' %}
+{% assign variants = '' %}
+{% assign collections = '387818883' %}
+{% assign tags = '' %}
+
+{% if cart.item_count > 0 %}
+
+    {% if variants != blank %}
+        {% assign variantIds = ',' | append: variants | append: ',' %}
+    {% endif %}
+    {% if collections != blank %}
+        {% assign colIds = ',' | append: collections | append: ',' %}
+    {% endif %}
+    {% if tags != blank %}
+        {% assign tagIds = ',' | append: tags | append: ',' %}
+    {% endif %}
+
+    {% assign match = false %}
+
+    {% for item in cart.items %}
+        {% assign matchVariant = false %}
+
+        <!-- variants format id,id -->
+        {% if variants != blank %}
+            {% assign wrapId = ',' | append: item.variant_id | append: ',' %}
+            {% if variantIds contains wrapId %}
+                {% assign matchVariant = true %}
+            {% endif %}
+        {% elsif variant_apply == 'variants' %}
+            {% assign matchVariant = true %}
+        {% endif %}
+
+        {% if variant_apply == 'variants' %}
+            {% if matchVariant %}
+                {% assign match = true %}
+                {% break %}
+            {% else %}
+                {% assign match = false %}
+                {% continue %}
+            {% endif %}
+        {% elsif variant_apply == 'matching_and_variants' %}
+            {% assign match = matchVariant %}
+            {% if matchVariant %}
+                {% assign match = true %}
+                {% break %}
+            {% endif %}
+        {% elsif variant_apply == 'matching_except_variants' %}
+            {% if matchVariant %}
+                {% assign match = false %}
+                {% continue %}
+            {% endif %}
+        {% endif %}
+
+        {% assign matchRule = true %}
+
+        <!-- collections format id,id -->
+        {% if collections != blank %}
+            {% assign matchRule = false %}
+            {% for collection in item.product.collections %}
+                {% assign wrapId = ',' | append: collection.id | append: ',' %}
+                {% if colIds contains wrapId %}
+                    {% assign matchRule = true %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!-- tags format tag,tag -->
+        {% if tags != blank and matchRule == true %}
+            {% assign matchRule = false %}
+            {% for tag in item.product.tags %}
+                {% assign wrapTag = ',' | append: tag | append: ',' %}
+                {% if tagIds contains wrapTag %}
+                    {% assign matchRule = true %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if matchRule %}
+            {% assign match = true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+
+{% endif %}
+
+    {% if customer and customer.metafields.customer_attribute.what-type-of-hunting-do-you and match == true %}
+    <input class="ca-value ca-hidden" type="hidden" id="what-type-of-hunting-do-you" value="{{customer.metafields.customer_attribute.what-type-of-hunting-do-you }}" name="attributes[what-type-of-hunting-do-you]">
+    {% elsif match == true %}
+            <div class="grid__item medium-up--one-half ca-attr">
+                <label class="ca-label ca-multiselect-label " for="what-type-of-hunting-do-you"> *Optional*  What type of hunting do you do?  Check all that apply </label>
+<div class="ca-value ca-multiselect ">
+    <section>
+                    <div class="ca-checkbox ca-inline">
+                <input class="ca-option" type="checkbox" name="attributes[what-type-of-hunting-do-you][]" value="Cross Bow" data-value="Cross Bow" 
+                 id="what-type-of-hunting-do-you">
+                <label>Cross Bow</label>
+            </div>
+                    <div class="ca-checkbox ca-inline">
+                <input class="ca-option" type="checkbox" name="attributes[what-type-of-hunting-do-you][]" value="Compound Bow " data-value="Compound Bow " 
+                 id="what-type-of-hunting-do-you">
+                <label>Compound Bow </label>
+            </div>
+                    <div class="ca-checkbox ca-inline">
+                <input class="ca-option" type="checkbox" name="attributes[what-type-of-hunting-do-you][]" value="Gun " data-value="Gun " 
+                 id="what-type-of-hunting-do-you">
+                <label>Gun </label>
+            </div>
+            </section>
+</div>            </div>
+            {% endif %}            </div>
+</div>

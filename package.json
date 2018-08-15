@@ -1,0 +1,10 @@
+{
+  "name": "heympdev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "polymer-bundler polymer/src/polymer-app/polymer-app.html > assets/build.html",
+    "start": "theme watch"
+  }
+}

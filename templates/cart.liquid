@@ -1,0 +1,13 @@
+{% comment %}
+  The contents of the cart.liquid template can be found in /sections/cart-template.liquid
+{% endcomment %}
+
+{% section 'cart-template' %}
+
+<div class="ls-container">
+{% include 'limespot-related-cart' %}
+{% include 'limespot-cross-sell-cart' %}
+{% include 'limespot-upsell-cart' %}
+{% include 'limespot-you-may-like' %}
+{% include 'limespot-recently-viewed' %}
+</div>
